@@ -7,3 +7,12 @@
 2024-07-16 14:50:53,146 :INFO :test_incorrect_email_password :Error message shown
 2024-07-16 14:50:57,814 :INFO :test_add_products :Home page is displayed
 2024-07-16 14:51:01,032 :INFO :test_add_products :Two products have added to cart
+2024-07-16 15:05:00,988 :INFO :test_createAccountAndDelete :Home Page is visible
+2024-07-16 15:05:01,703 :INFO :test_createAccountAndDelete :account information text is visible
+2024-07-16 15:05:05,911 :INFO :test_createAccountAndDelete :Account created successfully
+2024-07-16 15:05:10,630 :INFO :test_createAccountAndDelete :Account deleted successfully
+2024-07-16 15:05:17,881 :INFO :test_login_with_correct_data :HomePage is displayed
+2024-07-16 15:05:29,409 :INFO :test_incorrect_email_password :Home page displayed
+2024-07-16 15:05:31,167 :INFO :test_incorrect_email_password :Error message shown
+2024-07-16 15:05:36,553 :INFO :test_add_products :Home page is displayed
+2024-07-16 15:05:39,448 :INFO :test_add_products :Two products have added to cart
