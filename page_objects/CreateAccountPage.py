@@ -2,11 +2,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
 from page_objects.ConfirmationPage import ConfirmationPage
+from test_data.TestData import TestData
 
 
 class CreateAccountPage:
     def __init__(self, driver):
         self.driver = driver
+        self.data = TestData()
 
     verify_createAccountPage_isvisible = (By.CSS_SELECTOR, "h2:nth-child(1) b")
     gender = (By.ID, "id_gender1")
@@ -32,23 +34,23 @@ class CreateAccountPage:
 
     def enterDetails(self):
         self.driver.find_element(*CreateAccountPage.gender).click()
-        self.driver.find_element(*CreateAccountPage.password).send_keys("sagar")
-        Select(self.driver.find_element(*CreateAccountPage.days)).select_by_visible_text("13")
-        Select(self.driver.find_element(*CreateAccountPage.months)).select_by_visible_text("August")
-        Select(self.driver.find_element(*CreateAccountPage.years)).select_by_visible_text("2001")
+        self.driver.find_element(*CreateAccountPage.password).send_keys(self.data.sign_up_password)
+        Select(self.driver.find_element(*CreateAccountPage.days)).select_by_visible_text(self.data.date)
+        Select(self.driver.find_element(*CreateAccountPage.months)).select_by_visible_text(self.data.month)
+        Select(self.driver.find_element(*CreateAccountPage.years)).select_by_visible_text(self.data.year)
         self.driver.find_element(*CreateAccountPage.newsletter_checkbox).click()
         self.driver.find_element(*CreateAccountPage.optin_checkbox).click()
 
     def enterAddressDetails(self):
-        self.driver.find_element(*CreateAccountPage.first_name).send_keys("sagar")
-        self.driver.find_element(*CreateAccountPage.last_name).send_keys("vp")
-        self.driver.find_element(*CreateAccountPage.company).send_keys("qapio")
-        self.driver.find_element(*CreateAccountPage.address).send_keys("karuppur")
-        Select(self.driver.find_element(*CreateAccountPage.countries)).select_by_visible_text("India")
-        self.driver.find_element(*CreateAccountPage.state).send_keys("Tamil Nadu")
-        self.driver.find_element(*CreateAccountPage.city).send_keys("salem")
-        self.driver.find_element(*CreateAccountPage.zip).send_keys("636012")
-        self.driver.find_element(*CreateAccountPage.mobile).send_keys("9344508181")
+        self.driver.find_element(*CreateAccountPage.first_name).send_keys(self.data.first_name)
+        self.driver.find_element(*CreateAccountPage.last_name).send_keys(self.data.last_name)
+        self.driver.find_element(*CreateAccountPage.company).send_keys(self.data.company_name)
+        self.driver.find_element(*CreateAccountPage.address).send_keys(self.data.address)
+        Select(self.driver.find_element(*CreateAccountPage.countries)).select_by_visible_text(self.data.country)
+        self.driver.find_element(*CreateAccountPage.state).send_keys(self.data.state)
+        self.driver.find_element(*CreateAccountPage.city).send_keys(self.data.city)
+        self.driver.find_element(*CreateAccountPage.zip).send_keys(self.data.zip)
+        self.driver.find_element(*CreateAccountPage.mobile).send_keys(self.data.mobile)
         self.driver.find_element(*CreateAccountPage.create_account_btn).click()
         return ConfirmationPage(self.driver)
 
